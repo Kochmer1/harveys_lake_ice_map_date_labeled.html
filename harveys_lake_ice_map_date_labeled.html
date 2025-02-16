@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_44109a39f42e768ec6b6fa4f2d69f401 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_44109a39f42e768ec6b6fa4f2d69f401" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_44109a39f42e768ec6b6fa4f2d69f401 = L.map(
+                "map_44109a39f42e768ec6b6fa4f2d69f401",
+                {
+                    center: [41.365, -76.054],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_627b8148fc017a55803a8ef19433d774 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_44109a39f42e768ec6b6fa4f2d69f401);
+        
+    
+            var feature_group_135fa29033ce79a3d444b62520a9e5dc = L.featureGroup(
+                {}
+            ).addTo(map_44109a39f42e768ec6b6fa4f2d69f401);
+        
+    
+            var marker_61de551b599367f672f15a7ff487c9b4 = L.marker(
+                [41.36576, -76.05469],
+                {}
+            ).addTo(feature_group_135fa29033ce79a3d444b62520a9e5dc);
+        
+    
+            var icon_8c680ca53510480997b30004d9a72691 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_61de551b599367f672f15a7ff487c9b4.setIcon(icon_8c680ca53510480997b30004d9a72691);
+        
+    
+        var popup_54f5e21b63dc9b985d33c9c06f41389e = L.popup({"maxWidth": 250});
+
+        
+            var html_bf14d7b57cafaa0b9d0f8037eb0ef46a = $(`<div id="html_bf14d7b57cafaa0b9d0f8037eb0ef46a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 1</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 9.0 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 10, 2025</p>         </div>     </div>`)[0];
+            popup_54f5e21b63dc9b985d33c9c06f41389e.setContent(html_bf14d7b57cafaa0b9d0f8037eb0ef46a);
+        
+
+        marker_61de551b599367f672f15a7ff487c9b4.bindPopup(popup_54f5e21b63dc9b985d33c9c06f41389e)
+        ;
+
+        
+    
+    
+            var marker_f641c1e6ff520c187229bb66041aae80 = L.marker(
+                [41.36581, -76.05458],
+                {}
+            ).addTo(feature_group_135fa29033ce79a3d444b62520a9e5dc);
+        
+    
+            var icon_7aeafac99a5aae11f05352f6d882461d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f641c1e6ff520c187229bb66041aae80.setIcon(icon_7aeafac99a5aae11f05352f6d882461d);
+        
+    
+        var popup_892723b9e4a0e910ac2de1dbdb3aba5f = L.popup({"maxWidth": 250});
+
+        
+            var html_7fb1c3e2a3009ef7e6956387ff9d9079 = $(`<div id="html_7fb1c3e2a3009ef7e6956387ff9d9079" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 2</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 10.5 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 10, 2025</p>         </div>     </div>`)[0];
+            popup_892723b9e4a0e910ac2de1dbdb3aba5f.setContent(html_7fb1c3e2a3009ef7e6956387ff9d9079);
+        
+
+        marker_f641c1e6ff520c187229bb66041aae80.bindPopup(popup_892723b9e4a0e910ac2de1dbdb3aba5f)
+        ;
+
+        
+    
+    
+            var marker_019d30c2a416375f2362a47faf86b117 = L.marker(
+                [41.36604, -76.05405],
+                {}
+            ).addTo(feature_group_135fa29033ce79a3d444b62520a9e5dc);
+        
+    
+            var icon_32ebf604a576cd956687d477dc13008f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_019d30c2a416375f2362a47faf86b117.setIcon(icon_32ebf604a576cd956687d477dc13008f);
+        
+    
+        var popup_a8e7b3132bf630c166488440b6c48328 = L.popup({"maxWidth": 250});
+
+        
+            var html_8e84dd3b4d1eee6fd5082692443cbc66 = $(`<div id="html_8e84dd3b4d1eee6fd5082692443cbc66" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 3</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 9.0 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 10, 2025</p>         </div>     </div>`)[0];
+            popup_a8e7b3132bf630c166488440b6c48328.setContent(html_8e84dd3b4d1eee6fd5082692443cbc66);
+        
+
+        marker_019d30c2a416375f2362a47faf86b117.bindPopup(popup_a8e7b3132bf630c166488440b6c48328)
+        ;
+
+        
+    
+    
+            var marker_9ae4d709ef77885c7e2cdc47ae459c14 = L.marker(
+                [41.36593, -76.05398],
+                {}
+            ).addTo(feature_group_135fa29033ce79a3d444b62520a9e5dc);
+        
+    
+            var icon_9603768970645613181e864a76462667 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9ae4d709ef77885c7e2cdc47ae459c14.setIcon(icon_9603768970645613181e864a76462667);
+        
+    
+        var popup_dbe96580f8403c6d7f85018bf9fbaf83 = L.popup({"maxWidth": 250});
+
+        
+            var html_5a748170ea4325d20a3f3057a6c03ab9 = $(`<div id="html_5a748170ea4325d20a3f3057a6c03ab9" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 4</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 9.0 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 10, 2025</p>         </div>     </div>`)[0];
+            popup_dbe96580f8403c6d7f85018bf9fbaf83.setContent(html_5a748170ea4325d20a3f3057a6c03ab9);
+        
+
+        marker_9ae4d709ef77885c7e2cdc47ae459c14.bindPopup(popup_dbe96580f8403c6d7f85018bf9fbaf83)
+        ;
+
+        
+    
+    
+            var marker_de4eb7bfa3cdbfd3a7d76559e80bc58a = L.marker(
+                [41.36529, -76.05497],
+                {}
+            ).addTo(feature_group_135fa29033ce79a3d444b62520a9e5dc);
+        
+    
+            var icon_1aa54d810b7a4e0cd02bc8d34f4059a9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_de4eb7bfa3cdbfd3a7d76559e80bc58a.setIcon(icon_1aa54d810b7a4e0cd02bc8d34f4059a9);
+        
+    
+        var popup_30669bc455b58e885d17bf0b8962e2e6 = L.popup({"maxWidth": 250});
+
+        
+            var html_7e0efb03cb4800c02aa2023958977b70 = $(`<div id="html_7e0efb03cb4800c02aa2023958977b70" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 5</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 9.2 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 10, 2025</p>         </div>     </div>`)[0];
+            popup_30669bc455b58e885d17bf0b8962e2e6.setContent(html_7e0efb03cb4800c02aa2023958977b70);
+        
+
+        marker_de4eb7bfa3cdbfd3a7d76559e80bc58a.bindPopup(popup_30669bc455b58e885d17bf0b8962e2e6)
+        ;
+
+        
+    
+    
+            var marker_1c1467be730d0eaf63fab371ebcb3da6 = L.marker(
+                [41.36516, -76.05565],
+                {}
+            ).addTo(feature_group_135fa29033ce79a3d444b62520a9e5dc);
+        
+    
+            var icon_4d2c0118cf3cad341ea1b40ea17d106d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1c1467be730d0eaf63fab371ebcb3da6.setIcon(icon_4d2c0118cf3cad341ea1b40ea17d106d);
+        
+    
+        var popup_472ddfac9e42f15d0bcff8b4083e677e = L.popup({"maxWidth": 250});
+
+        
+            var html_cd898d5bf41fa326e78e0968f9fd90b2 = $(`<div id="html_cd898d5bf41fa326e78e0968f9fd90b2" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 6</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 10.0 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 10, 2025</p>         </div>     </div>`)[0];
+            popup_472ddfac9e42f15d0bcff8b4083e677e.setContent(html_cd898d5bf41fa326e78e0968f9fd90b2);
+        
+
+        marker_1c1467be730d0eaf63fab371ebcb3da6.bindPopup(popup_472ddfac9e42f15d0bcff8b4083e677e)
+        ;
+
+        
+    
+    
+            var marker_ecba908397adfe8e1210596018cb85ca = L.marker(
+                [41.36455, -76.05521],
+                {}
+            ).addTo(feature_group_135fa29033ce79a3d444b62520a9e5dc);
+        
+    
+            var icon_c049d3448e9d52f13e58dd4a404ced6a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ecba908397adfe8e1210596018cb85ca.setIcon(icon_c049d3448e9d52f13e58dd4a404ced6a);
+        
+    
+        var popup_1f4cb3b148dbd9258df48cee46302012 = L.popup({"maxWidth": 250});
+
+        
+            var html_acbb1185411248f82c6768f943efeaf4 = $(`<div id="html_acbb1185411248f82c6768f943efeaf4" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 7</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 10.0 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 10, 2025</p>         </div>     </div>`)[0];
+            popup_1f4cb3b148dbd9258df48cee46302012.setContent(html_acbb1185411248f82c6768f943efeaf4);
+        
+
+        marker_ecba908397adfe8e1210596018cb85ca.bindPopup(popup_1f4cb3b148dbd9258df48cee46302012)
+        ;
+
+        
+    
+    
+            var marker_3a7e998560678b1f40da5a51fd670c95 = L.marker(
+                [41.36429, -76.05605],
+                {}
+            ).addTo(feature_group_135fa29033ce79a3d444b62520a9e5dc);
+        
+    
+            var icon_a9a5b2d50ee630883251c2c07a935b4f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3a7e998560678b1f40da5a51fd670c95.setIcon(icon_a9a5b2d50ee630883251c2c07a935b4f);
+        
+    
+        var popup_22edd64658427f0487bc0bd04a1ae7ac = L.popup({"maxWidth": 250});
+
+        
+            var html_fd5432c418953f7733eeb4fe3081aa5e = $(`<div id="html_fd5432c418953f7733eeb4fe3081aa5e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 8</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 9.8 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 10, 2025</p>         </div>     </div>`)[0];
+            popup_22edd64658427f0487bc0bd04a1ae7ac.setContent(html_fd5432c418953f7733eeb4fe3081aa5e);
+        
+
+        marker_3a7e998560678b1f40da5a51fd670c95.bindPopup(popup_22edd64658427f0487bc0bd04a1ae7ac)
+        ;
+
+        
+    
+    
+            var feature_group_c9a8edd924813d71b6b9750a747b3515 = L.featureGroup(
+                {}
+            ).addTo(map_44109a39f42e768ec6b6fa4f2d69f401);
+        
+    
+            var marker_ed01f83eac5db9407506b76314747a63 = L.marker(
+                [41.36496, -76.05551],
+                {}
+            ).addTo(feature_group_c9a8edd924813d71b6b9750a747b3515);
+        
+    
+            var icon_c27949b3eeaa0f51be8b5bdfec5cc03f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ed01f83eac5db9407506b76314747a63.setIcon(icon_c27949b3eeaa0f51be8b5bdfec5cc03f);
+        
+    
+        var popup_6f858545a95325df8d45c6f33f6069d5 = L.popup({"maxWidth": 250});
+
+        
+            var html_80f5bc3454f68a08a4ed4b9e6e67474c = $(`<div id="html_80f5bc3454f68a08a4ed4b9e6e67474c" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 9</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 11.0 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 15, 2025</p>         </div>     </div>`)[0];
+            popup_6f858545a95325df8d45c6f33f6069d5.setContent(html_80f5bc3454f68a08a4ed4b9e6e67474c);
+        
+
+        marker_ed01f83eac5db9407506b76314747a63.bindPopup(popup_6f858545a95325df8d45c6f33f6069d5)
+        ;
+
+        
+    
+    
+            var marker_89a3cceaed04add37bbbb288878c4de9 = L.marker(
+                [41.36579, -76.05338],
+                {}
+            ).addTo(feature_group_c9a8edd924813d71b6b9750a747b3515);
+        
+    
+            var icon_9d5af9f0e9dab51ca62a8f62c1606dc9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_89a3cceaed04add37bbbb288878c4de9.setIcon(icon_9d5af9f0e9dab51ca62a8f62c1606dc9);
+        
+    
+        var popup_fd8e9ea6f63aa5b25f44fee21dc92341 = L.popup({"maxWidth": 250});
+
+        
+            var html_8b3a870501819a1835500a6e0ede273b = $(`<div id="html_8b3a870501819a1835500a6e0ede273b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 10</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 10.5 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 15, 2025</p>         </div>     </div>`)[0];
+            popup_fd8e9ea6f63aa5b25f44fee21dc92341.setContent(html_8b3a870501819a1835500a6e0ede273b);
+        
+
+        marker_89a3cceaed04add37bbbb288878c4de9.bindPopup(popup_fd8e9ea6f63aa5b25f44fee21dc92341)
+        ;
+
+        
+    
+    
+            var marker_4573bc382e067e9ad806be67fa9bd3a8 = L.marker(
+                [41.36635, -76.05178],
+                {}
+            ).addTo(feature_group_c9a8edd924813d71b6b9750a747b3515);
+        
+    
+            var icon_aca9711387c6846a5ffb023aac78b8ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_4573bc382e067e9ad806be67fa9bd3a8.setIcon(icon_aca9711387c6846a5ffb023aac78b8ea);
+        
+    
+        var popup_d5a61130913aee79fbb6c28a96e133da = L.popup({"maxWidth": 250});
+
+        
+            var html_ae9a4ccf1f87a5e6c468b812fcebe6f0 = $(`<div id="html_ae9a4ccf1f87a5e6c468b812fcebe6f0" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 11</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 10.4 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 15, 2025</p>         </div>     </div>`)[0];
+            popup_d5a61130913aee79fbb6c28a96e133da.setContent(html_ae9a4ccf1f87a5e6c468b812fcebe6f0);
+        
+
+        marker_4573bc382e067e9ad806be67fa9bd3a8.bindPopup(popup_d5a61130913aee79fbb6c28a96e133da)
+        ;
+
+        
+    
+    
+            var marker_7168c30cd6a44bbd9177f40fec62d3b4 = L.marker(
+                [41.36675, -76.05091],
+                {}
+            ).addTo(feature_group_c9a8edd924813d71b6b9750a747b3515);
+        
+    
+            var icon_33be790a5c98e0d68767c35a37c19a51 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7168c30cd6a44bbd9177f40fec62d3b4.setIcon(icon_33be790a5c98e0d68767c35a37c19a51);
+        
+    
+        var popup_93f35741fcbace1043e0ea4efc8ba548 = L.popup({"maxWidth": 250});
+
+        
+            var html_7ebe47e41b8e9ece99255e4099fa4280 = $(`<div id="html_7ebe47e41b8e9ece99255e4099fa4280" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 12</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 10.5 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 15, 2025</p>         </div>     </div>`)[0];
+            popup_93f35741fcbace1043e0ea4efc8ba548.setContent(html_7ebe47e41b8e9ece99255e4099fa4280);
+        
+
+        marker_7168c30cd6a44bbd9177f40fec62d3b4.bindPopup(popup_93f35741fcbace1043e0ea4efc8ba548)
+        ;
+
+        
+    
+    
+            var marker_2276787d2ecc2359a5b6db82085b5bde = L.marker(
+                [41.36696, -76.05103],
+                {}
+            ).addTo(feature_group_c9a8edd924813d71b6b9750a747b3515);
+        
+    
+            var icon_44974584bcecbc1ea0905185a73913c7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_2276787d2ecc2359a5b6db82085b5bde.setIcon(icon_44974584bcecbc1ea0905185a73913c7);
+        
+    
+        var popup_c63b7d136f5a5baf0e36bf2d2c579c43 = L.popup({"maxWidth": 250});
+
+        
+            var html_de18c7ee8f6d9cd2f83d3b5d4608257d = $(`<div id="html_de18c7ee8f6d9cd2f83d3b5d4608257d" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 13</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 9.5 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 15, 2025</p>         </div>     </div>`)[0];
+            popup_c63b7d136f5a5baf0e36bf2d2c579c43.setContent(html_de18c7ee8f6d9cd2f83d3b5d4608257d);
+        
+
+        marker_2276787d2ecc2359a5b6db82085b5bde.bindPopup(popup_c63b7d136f5a5baf0e36bf2d2c579c43)
+        ;
+
+        
+    
+    
+            var marker_848557bdbd423b73aaaaa1826b11139a = L.marker(
+                [41.3666, -76.05337],
+                {}
+            ).addTo(feature_group_c9a8edd924813d71b6b9750a747b3515);
+        
+    
+            var icon_cfd833b84576edd7c50f81a442d2681a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_848557bdbd423b73aaaaa1826b11139a.setIcon(icon_cfd833b84576edd7c50f81a442d2681a);
+        
+    
+        var popup_186e19aee28eb5830457a4a029cad5e4 = L.popup({"maxWidth": 250});
+
+        
+            var html_34234c90c730fb3573417877a1905187 = $(`<div id="html_34234c90c730fb3573417877a1905187" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 14</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 11.0 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 15, 2025</p>         </div>     </div>`)[0];
+            popup_186e19aee28eb5830457a4a029cad5e4.setContent(html_34234c90c730fb3573417877a1905187);
+        
+
+        marker_848557bdbd423b73aaaaa1826b11139a.bindPopup(popup_186e19aee28eb5830457a4a029cad5e4)
+        ;
+
+        
+    
+    
+            var marker_54b95aec63134548b16b28a58bb06b0a = L.marker(
+                [41.36624, -76.055],
+                {}
+            ).addTo(feature_group_c9a8edd924813d71b6b9750a747b3515);
+        
+    
+            var icon_ba49f4b62635559cd2719d5f0179104d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_54b95aec63134548b16b28a58bb06b0a.setIcon(icon_ba49f4b62635559cd2719d5f0179104d);
+        
+    
+        var popup_cbc2e058f9fd854d10fd6ab4af4a9d73 = L.popup({"maxWidth": 250});
+
+        
+            var html_1567f07d2592c08e85f325c6b727c019 = $(`<div id="html_1567f07d2592c08e85f325c6b727c019" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 15</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 10.0 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 15, 2025</p>         </div>     </div>`)[0];
+            popup_cbc2e058f9fd854d10fd6ab4af4a9d73.setContent(html_1567f07d2592c08e85f325c6b727c019);
+        
+
+        marker_54b95aec63134548b16b28a58bb06b0a.bindPopup(popup_cbc2e058f9fd854d10fd6ab4af4a9d73)
+        ;
+
+        
+    
+    
+            var marker_3a59f879927b186e94577f129205857d = L.marker(
+                [41.36562, -76.05621],
+                {}
+            ).addTo(feature_group_c9a8edd924813d71b6b9750a747b3515);
+        
+    
+            var icon_a61f67bc41c5eb698a4f9b35d530f9eb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3a59f879927b186e94577f129205857d.setIcon(icon_a61f67bc41c5eb698a4f9b35d530f9eb);
+        
+    
+        var popup_41a60bac3ac0171ff34ccf577fb0d012 = L.popup({"maxWidth": 250});
+
+        
+            var html_1191a0eecd41752b9c31ff24dbc2be6b = $(`<div id="html_1191a0eecd41752b9c31ff24dbc2be6b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 16</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 10.5 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 15, 2025</p>         </div>     </div>`)[0];
+            popup_41a60bac3ac0171ff34ccf577fb0d012.setContent(html_1191a0eecd41752b9c31ff24dbc2be6b);
+        
+
+        marker_3a59f879927b186e94577f129205857d.bindPopup(popup_41a60bac3ac0171ff34ccf577fb0d012)
+        ;
+
+        
+    
+    
+            var marker_1a3685ac2d57b2272e7be003f1666231 = L.marker(
+                [41.36488, -76.05463],
+                {}
+            ).addTo(feature_group_c9a8edd924813d71b6b9750a747b3515);
+        
+    
+            var icon_0758c1d7ef888d84ceea98648ad31d00 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1a3685ac2d57b2272e7be003f1666231.setIcon(icon_0758c1d7ef888d84ceea98648ad31d00);
+        
+    
+        var popup_f285d4d92b4ac65f8286ca5c11bb65c2 = L.popup({"maxWidth": 250});
+
+        
+            var html_5f3111b3d2c69d5e0cdde657bd9100e4 = $(`<div id="html_5f3111b3d2c69d5e0cdde657bd9100e4" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; padding: 10px; border-radius: 8px;                      background-color: #f8f9fa; border: 2px solid #007bff; width: 200px;">             <h4 style="margin: 0; color: #007bff;">Waypoint 17</h4>             <hr style="border-top: 1px solid #007bff;">             <p style="margin: 5px 0;"><b>Ice Depth:</b> 9.4 inches</p>             <p style="margin: 5px 0;"><b>Collected:</b> February 15, 2025</p>         </div>     </div>`)[0];
+            popup_f285d4d92b4ac65f8286ca5c11bb65c2.setContent(html_5f3111b3d2c69d5e0cdde657bd9100e4);
+        
+
+        marker_1a3685ac2d57b2272e7be003f1666231.bindPopup(popup_f285d4d92b4ac65f8286ca5c11bb65c2)
+        ;
+
+        
+    
+    
+            var layer_control_a8b79415b9b77844b3bddbacbffa7300 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_627b8148fc017a55803a8ef19433d774,
+                },
+                overlays :  {
+                    "February 10, 2025" : feature_group_135fa29033ce79a3d444b62520a9e5dc,
+                    "February 15, 2025" : feature_group_c9a8edd924813d71b6b9750a747b3515,
+                },
+            };
+            L.control.layers(
+                layer_control_a8b79415b9b77844b3bddbacbffa7300.base_layers,
+                layer_control_a8b79415b9b77844b3bddbacbffa7300.overlays,
+                {"autoZIndex": true, "collapsed": false, "position": "topright"}
+            ).addTo(map_44109a39f42e768ec6b6fa4f2d69f401);
+        
+</script>
+</html>
