@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HLEMP • Harvey's Lake Depth Point</title>
+  <!-- Leaflet CDN -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <style>
+    :root{--bg:#0b1220;--card:#141c2b;--muted:#778;--fg:#f5f7fb;--accent:#3fb950;--warn:#f59e0b;--bad:#ef4444}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font:16px/1.4 system-ui,Segoe UI,Roboto,Helvetica,Arial}
+    #app{display:grid;grid-template-columns:360px 1fr;grid-template-rows:1fr;gap:12px;height:100%;padding:12px}
+    .card{background:var(--card);border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,.35);padding:14px}
+    h1{font-size:18px;margin:0 0 8px}
+    .sub{color:var(--muted);font-size:12px}
+    .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
+    .metric{background:rgba(255,255,255,.04);border-radius:12px;padding:10px}
+    .metric h3{margin:0 0 2px;font-size:13px;color:var(--muted)}
+    .metric .val{font-size:22px;font-weight:700}
+    .ok{color:var(--accent)}.weak{color:var(--warn)}.bad{color:var(--bad)}
+    .row{display:flex;align-items:center;gap:8px;margin-top:6px}
+    .row small{color:var(--muted)}
+    #map{height:100%;width:100%;border-radius:14px;overflow:hidden}
+    .footer{margin-top:10px;color:var(--muted);font-size:12px}
+    a{color:#8ab4ff;text-decoration:none}
+    code{background:#0e1626;padding:2px 6px;border-radius:6px}
+    .pill{display:inline-block;padding:2px 8px;border-radius:999px;background:#0e1626;color:var(--muted);font-size:12px}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <aside class="card">
+      <h1>Harvey's Lake • Depth Point</h1>
+      <div class="sub">Live Ecowitt LDS data pinned to a shoreline/pole location. Updates every 60s.</div>
+
+      <div class="row"><span class="pill" id="coord-pill">Lat —, Lng —</span><span class="pill" id="status-pill">Loading…</span></div>
+
+      <div class="metrics">
+        <div class="metric"><h3>Depth</h3><div class="val" id="depthVal">—</div><small class="sub" id="depthSub">ft</small></div>
+        <div class="metric"><h3>Air Gap</h3><div class="val" id="airVal">—</div><small class="sub">sensor→water (ft)</small></div>
+        <div class="metric"><h3>Stage (Ref)</h3><div class="val" id="stageVal">—</div><small class="sub" id="stageNote">ft below REF-1</small></div>
+        <div class="metric"><h3>Signal</h3><div class="val" id="sigVal">—</div><small class="sub" id="heatVal">heater count —</small></div>
+      </div>
+
+      <div class="footer">
+        <p><strong>Config:</strong> edit the <code>CONFIG</code> object in this file:
+        <br>• <code>coords</code> = your point on the lake
+        <br>• <code>baseline_ft</code> = sensor→bottom (we used 5.00 ft)
+        <br>• <code>ref_to_sensor_ft</code> = REF‑1→sensor (optional; for stage)
+        <br>• <code>dataUrl</code> = endpoint returning JSON from your Ecowitt/GW gateway</p>
+        <p>Expected JSON shape (example):
+        <code>{"air_ft":3.35,"depth_ft":0.71,"laser":"Weak","heater_count":1653,"timestamp":"2025-10-06T14:21:00-04:00"}</code>
+        <br>If only <code>air_ft</code> is provided, depth will be computed as <code>baseline_ft - air_ft</code>.</p>
+      </div>
+    </aside>
+
+    <main class="card"><div id="map"></div></main>
+  </div>
+
+  <script>
+    // ================= CONFIG =================
+    const CONFIG = {
+      // Harvey's Lake placeholder; replace with your exact pole coordinates
+      coords: { lat: 41.3689, lng: -76.0235 },
+      zoom: 15,
+      // Your calibrated baseline (sensor -> bottom). You chose 5.00 ft.
+      baseline_ft: 5.00,
+      // Optional: Reference point (REF-1) to sensor vertical distance, feet.
+      // If provided, we show stage (ft below REF-1) = ref_to_sensor_ft + air_ft
+      ref_to_sensor_ft: 1.80, // set to null if you don't use a shoreline reference
+      // Where to fetch live data. Replace with your endpoint or local gateway bridge.
+      // You can start with a static JSON file named data.json placed next to this HTML.
+      dataUrl: 'data.json',
+      refreshMs: 60000
+    };
+    // ==========================================
+
+    // Map
+    const map = L.map('map', { zoomControl: true }).setView([CONFIG.coords.lat, CONFIG.coords.lng], CONFIG.zoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const marker = L.marker([CONFIG.coords.lat, CONFIG.coords.lng]).addTo(map);
+    const coordPill = document.getElementById('coord-pill');
+    coordPill.textContent = `Lat ${CONFIG.coords.lat.toFixed(5)}, Lng ${CONFIG.coords.lng.toFixed(5)}`;
+
+    const status = document.getElementById('status-pill');
+    const depthEl = document.getElementById('depthVal');
+    const airEl = document.getElementById('airVal');
+    const stageEl = document.getElementById('stageVal');
+    const stageNote = document.getElementById('stageNote');
+    const sigEl = document.getElementById('sigVal');
+    const heatEl = document.getElementById('heatVal');
+
+    function fmt(x){ return (x==null||isNaN(x))? '—' : Number(x).toFixed(2); }
+    function classifySignal(s){ if(!s) return '—'; s = String(s).toLowerCase(); return s.includes('weak')? 'Weak' : s.includes('strong')? 'Strong' : s; }
+
+    async function load(){
+      status.textContent = 'Loading…';
+      try{
+        const res = await fetch(CONFIG.dataUrl,{cache:'no-cache'});
+        const j = await res.json();
+        const air = (j.air_ft!=null)? Number(j.air_ft) : null;
+        const depth = (j.depth_ft!=null)? Number(j.depth_ft) : (air!=null? CONFIG.baseline_ft - air : null);
+        const stage = (CONFIG.ref_to_sensor_ft!=null && air!=null)? CONFIG.ref_to_sensor_ft + air : null;
+
+        airEl.textContent = fmt(air);
+        depthEl.textContent = fmt(depth);
+        stageEl.textContent = fmt(stage);
+        stageNote.textContent = CONFIG.ref_to_sensor_ft!=null? 'ft below REF-1' : '(set ref_to_sensor_ft)';
+        const sig = classifySignal(j.laser);
+        sigEl.textContent = sig;
+        sigEl.className = 'val ' + (sig==='Strong'?'ok':sig==='Weak'?'weak':'');
+        heatEl.textContent = 'heater count ' + (j.heater_count ?? '—');
+
+        const t = j.timestamp? new Date(j.timestamp) : new Date();
+        status.textContent = 'Updated ' + t.toLocaleString();
+
+        const html = `
+          <strong>HLEMP Point</strong><br>
+          Depth: <b>${fmt(depth)} ft</b><br>
+          Sensor→Water: ${fmt(air)} ft<br>
+          ${CONFIG.ref_to_sensor_ft!=null? ('Stage: ' + fmt(stage) + ' ft below REF‑1<br>') : ''}
+          Signal: ${sig} · Heater: ${j.heater_count ?? '—'}<br>
+          <small>${t.toLocaleString()}</small>
+        `;
+        marker.bindPopup(html);
+      }catch(err){
+        console.error(err);
+        status.textContent = 'Failed to load';
+        sigEl.textContent = '—';
+        heatEl.textContent = 'heater count —';
+      }
+    }
+
+    load();
+    setInterval(load, CONFIG.refreshMs);
+  </script>
+</body>
+</html>
