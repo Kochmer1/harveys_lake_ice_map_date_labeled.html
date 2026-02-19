@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Harveys Lake Ice Thickness Map – 2026</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { margin: 0; }
+    #map { height: 100vh; }
+    .legend {
+      background: white;
+      padding: 10px;
+      line-height: 18px;
+      color: #333;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+
+var map = L.map('map').setView([41.3665, -76.0535], 15);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+function getColor(thickness) {
+  return thickness >= 15 ? '#08306b' :
+         thickness >= 13 ? '#2171b5' :
+         thickness >= 11 ? '#41b6c4' :
+         thickness >= 9  ? '#feb24c' :
+                           '#de2d26';
+}
+
+var iceData = [
+  [41.36536, -76.05671, 13.5],
+  [41.36458, -76.05599, 13.5],
+  [41.36403, -76.05496, 13.5],
+  [41.36473, -76.05352, 13.5],
+  [41.36655, -76.05417, 11.5],
+  [41.36631, -76.05347, 11.5],
+  [41.36587, -76.05152, 15],
+  [41.36670, -76.04930, 13.5],
+  [41.36759, -76.05027, 10.5],
+  [41.36845, -76.05107, 12.5],
+  [41.36843, -76.04916, 8.5]
+];
+
+iceData.forEach(function(point) {
+  L.circleMarker([point[0], point[1]], {
+    radius: 8,
+    fillColor: getColor(point[2]),
+    color: "#000",
+    weight: 1,
+    fillOpacity: 0.9
+  }).addTo(map)
+    .bindPopup("<b>" + point[2] + " inches</b><br>Measured 2/15/2026");
+});
+
+var legend = L.control({position: 'bottomright'});
+legend.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'legend');
+  div.innerHTML += "<b>Ice Thickness (inches)</b><br>";
+  div.innerHTML += "<i style='background:#08306b;width:12px;height:12px;display:inline-block;'></i> 15+<br>";
+  div.innerHTML += "<i style='background:#2171b5;width:12px;height:12px;display:inline-block;'></i> 13–14<br>";
+  div.innerHTML += "<i style='background:#41b6c4;width:12px;height:12px;display:inline-block;'></i> 11–12<br>";
+  div.innerHTML += "<i style='background:#feb24c;width:12px;height:12px;display:inline-block;'></i> 9–10<br>";
+  div.innerHTML += "<i style='background:#de2d26;width:12px;height:12px;display:inline-block;'></i> ≤ 8.5";
+  return div;
+};
+legend.addTo(map);
+
+</script>
+
+</body>
+</html>
